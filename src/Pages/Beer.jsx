@@ -15,6 +15,8 @@ const Beer = () => {
     <div>
       {beers.map((item) => {
         return <h3>{item.name}</h3>;
+        
+        
       })}
     </div>
   );

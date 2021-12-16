@@ -5,8 +5,10 @@ import * as API from "../API"
 function * uploadBeersSaga (actions) {
 try {
     const response = yield API.uploadBeers(actions.payload);
+    console.log(response)
    yield put(
-       uploadBeersSuccess(response)
+       uploadBeersSuccess(response.data)
+       
    )
 } catch (error) {
     yield put(

@@ -5,6 +5,6 @@ const httpClient = axios.create({
 });
 
 export const uploadBeers = async(page) => {
-    return await httpClient.get(`/beers?page=${page}&per_page=1`)
+    return await httpClient.get(`/beers?page=${page}&per_page=12`)
 }
 
