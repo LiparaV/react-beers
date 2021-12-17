@@ -22,8 +22,15 @@ const beerSlice = createSlice({
       state.isLoading = false;
       state.error = actions.payload;
     },
+    uploadPizzaRequest(state, actions) {
+      state.isLoading = true
+    },
+    uploadSteakRequest(state, actions) {
+      state.isLoading = true
+    },
   },
 });
 
-export const {uploadBeersRequest, uploadBeersError, uploadBeersSuccess} = beerSlice.actions;
+
+export const {uploadBeersRequest, uploadBeersError, uploadBeersSuccess, uploadPizzaRequest, uploadSteakRequest} = beerSlice.actions;
 export default beerSlice.reducer;

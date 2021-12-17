@@ -2,10 +2,10 @@ import { put } from "@redux-saga/core/effects";
 import { uploadBeersSuccess, uploadBeersError } from "../Reducers/beerSlice";
 import * as API from "../API"
 
-function * uploadBeersSaga (actions) {
+function * uploadSteakSaga (actions) {
 try {
-    const response = yield API.uploadBeers(actions.payload);
-    console.log(response)
+    const response = yield API.uploadSteak(actions.payload);
+    
    yield put(
        uploadBeersSuccess(response.data)
        
@@ -17,5 +17,4 @@ try {
 }
 }
 
-
-export default uploadBeersSaga;
+export default uploadSteakSaga;

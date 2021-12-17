@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadBeersRequest } from "../Reducers/beerSlice";
 const Beer = () => {
   const { beers } = useSelector((state) => state);
+ 
   console.log(beers);
 
   const dispatch = useDispatch();
