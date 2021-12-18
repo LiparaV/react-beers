@@ -2,9 +2,11 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadBeersRequest } from "../Reducers/beerSlice";
+import styles from "./style.module.scss";
+import beer from "../assets/images/beer.png";
 const Beer = () => {
   const { beers } = useSelector((state) => state);
- 
+
   console.log(beers);
 
   const dispatch = useDispatch();
@@ -13,11 +15,19 @@ const Beer = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.pageWrapper}>
       {beers.map((item) => {
-        return <h3>{item.name}</h3>;
-        
-        
+        return (
+          <div className={styles.beerWrapper}>
+            <img
+              className={styles.beerPicture}
+              src={item.image_url || beer}
+              alt="beer Picture"
+            />
+            <h1>{item.name}</h1>
+            <h3>{item.abv}</h3>
+          </div>
+        );
       })}
     </div>
   );
