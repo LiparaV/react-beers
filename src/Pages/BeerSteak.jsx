@@ -12,7 +12,7 @@ const BeerSteak = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.pageWrapper}>
       {beers.map((item) => {
         return (
           <div className={styles.beerWrapper}>

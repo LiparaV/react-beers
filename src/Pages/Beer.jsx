@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadBeersRequest } from "../Reducers/beerSlice";
 import styles from "./style.module.scss";
 import beer from "../assets/images/beer.png";
+import ModalUnstyled from "@mui/base/ModalUnstyled";
+
 const Beer = () => {
   const { beers } = useSelector((state) => state);
 
@@ -18,7 +20,7 @@ const Beer = () => {
     <div className={styles.pageWrapper}>
       {beers.map((item) => {
         return (
-          <div className={styles.beerWrapper}>
+          <div onClick={() => alert("hi")} className={styles.beerWrapper}>
             <img
               className={styles.beerPicture}
               src={item.image_url || beer}
