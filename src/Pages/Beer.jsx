@@ -6,24 +6,34 @@ import styles from "./style.module.scss";
 import beer from "../assets/images/beer.png";
 import Modal from "../Modal/Modal";
 
-const Beer = () => {
+const Beer = (currentBeer) => {
   const { beers } = useSelector((state) => state);
-
-  console.log(beers);
-
+  const beerId = useSelector((state) => state.id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(uploadBeersRequest(1));
   }, []);
 
   const [modalActive, setModalActive] = useState(false);
+  const [modalBeerId, setModalBeerId] = useState();
 
+  function modalActivated(id) {
+    setModalActive(true);
+    setModalBeerId(id);
+    console.log(id)
+  }
+  const getCurrentBeer = () => {
+   return beers.find((item) => item.id === modalBeerId)
+  }
+  console.log(beers)
   return (
     <div className={styles.pageWrapper}>
       {beers.map((item) => {
+        
         return (
+
           <div
-            onClick={() => setModalActive(true)}
+            onClick={(beeritem) => modalActivated(item.id)}
             className={styles.beerWrapper}
           >
             <img
@@ -37,7 +47,9 @@ const Beer = () => {
         );
       })}
 
-      <Modal active={modalActive} setActive={setModalActive}></Modal>
+      <Modal active={modalActive} setActive={setModalActive} currentBeer={getCurrentBeer()}>
+        <h1>{currentBeer.name}</h1>
+      </Modal>
     </div>
   );
 };

@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import "./modal.css";
 
+const Modal = ({ active, setActive, currentBeer }) => {
 
-const Modal = ({ active, setActive, children }) => {
-    
+  console.log(currentBeer);
   return (
     <div
       className={active ? "modal active" : "modal"}
@@ -13,9 +12,8 @@ const Modal = ({ active, setActive, children }) => {
       <div
         className={active ? "content active" : "content"}
         onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </div>
+      ></div>
+
     </div>
   );
 };

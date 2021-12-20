@@ -4,6 +4,7 @@ const initialState = {
   beers: [],
   isLoading: false,
   error: null,
+  id: null,
 };
 
 const beerSlice = createSlice({
