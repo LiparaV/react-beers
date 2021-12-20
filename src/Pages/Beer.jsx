@@ -1,10 +1,10 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadBeersRequest } from "../Reducers/beerSlice";
 import styles from "./style.module.scss";
 import beer from "../assets/images/beer.png";
-import ModalUnstyled from "@mui/base/ModalUnstyled";
+import Modal from "../Modal/Modal";
 
 const Beer = () => {
   const { beers } = useSelector((state) => state);
@@ -16,11 +16,16 @@ const Beer = () => {
     dispatch(uploadBeersRequest(1));
   }, []);
 
+  const [modalActive, setModalActive] = useState(false);
+
   return (
     <div className={styles.pageWrapper}>
       {beers.map((item) => {
         return (
-          <div onClick={() => alert("hi")} className={styles.beerWrapper}>
+          <div
+            onClick={() => setModalActive(true)}
+            className={styles.beerWrapper}
+          >
             <img
               className={styles.beerPicture}
               src={item.image_url || beer}
@@ -31,6 +36,8 @@ const Beer = () => {
           </div>
         );
       })}
+
+      <Modal active={modalActive} setActive={setModalActive}></Modal>
     </div>
   );
 };
