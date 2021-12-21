@@ -84,4 +84,11 @@
   font-size: 1.1rem;
   font-style: normal;
   margin: 5px 0px;
+  
+}
+.modalFoodWrapper{
+  white-space: pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }

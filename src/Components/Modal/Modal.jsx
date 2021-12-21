@@ -18,7 +18,7 @@ const Modal = ({ active, setActive, currentBeer }) => {
           <p className="modalTagLine">{currentBeer ? currentBeer.tagline : ""}</p>
           <p className="modalAbv">{currentBeer ? currentBeer.abv : ""}</p>
           <p className="modalDescription">{currentBeer ? currentBeer.description : ""}</p>
-          <p className="modalFoodPairing">{currentBeer ? currentBeer.food_pairing : ""}</p>
+          <p className="modalFoodPairing">{currentBeer ? currentBeer.food_pairing + "" : ""}</p>
           </div>
         </div>
       </div>
@@ -26,4 +26,4 @@ const Modal = ({ active, setActive, currentBeer }) => {
   );
 };
 
-export default Modal;
+export default Modal
