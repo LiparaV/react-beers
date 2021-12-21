@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uploadSteakRequest } from "../Reducers/beerSlice";
 import styles from "./style.module.scss";
 import beer from "../assets/images/beer.png";
+import Modal from "../Components/Modal/Modal";
+import Buttons from "../Components/Buttons/Buttons";
+
 const BeerSteak = () => {
   const { beers } = useSelector((state) => state);
 
@@ -11,11 +14,25 @@ const BeerSteak = () => {
     dispatch(uploadSteakRequest(1));
   }, []);
 
+  const [modalActive, setModalActive] = useState(false);
+  const [modalBeerId, setModalBeerId] = useState();
+
+  function modalActivated(id) {
+    setModalActive(true);
+    setModalBeerId(id);
+  }
+  const getCurrentBeer = () => {
+    return beers.find((item) => item.id === modalBeerId);
+  };
   return (
     <div className={styles.pageWrapper}>
+       <Buttons />
       {beers.map((item) => {
         return (
-          <div className={styles.beerWrapper}>
+          <div
+            onClick={(beeritem) => modalActivated(item.id)}
+            className={styles.beerWrapper}
+          >
             <img
               className={styles.beerPicture}
               src={item.image_url || beer}
@@ -26,6 +43,12 @@ const BeerSteak = () => {
           </div>
         );
       })}
+
+      <Modal
+        active={modalActive}
+        setActive={setModalActive}
+        currentBeer={getCurrentBeer()}
+      ></Modal>
     </div>
   );
 };

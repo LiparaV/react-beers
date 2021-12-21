@@ -29,9 +29,21 @@ const beerSlice = createSlice({
     uploadSteakRequest(state, actions) {
       state.isLoading = true
     },
+    beerSorterAsc(state, actions) {
+      state.beers = state.beers.sort((a,b) => a.abv - b.abv)
+    },
+    beerSorterDes(state, actions) {
+      state.beers = state.beers.sort((a,b) => b.abv - a.abv)
+    },
+    beerSorterNameAsc(state, actions) {
+      state.beers = state.beers.sort((a,b) => a.name !== b.name ? a.name < b.name ? -1 : 1 : 0)
+    },
+    beerSorterNameDes(state, actions) {
+      state.beers = state.beers.sort((a,b) => a.name !== b.name ? b.name < a.name ? -1 : 1 : 0)
+    },
   },
 });
 
 
-export const {uploadBeersRequest, uploadBeersError, uploadBeersSuccess, uploadPizzaRequest, uploadSteakRequest} = beerSlice.actions;
+export const {uploadBeersRequest, uploadBeersError, uploadBeersSuccess, uploadPizzaRequest, uploadSteakRequest, beerSorterAsc, beerSorterDes, beerSorterNameAsc, beerSorterNameDes} = beerSlice.actions;
 export default beerSlice.reducer;
