@@ -10,7 +10,6 @@
   height: 3rem;
   border-left: rgb(114, 114, 114) 2px solid;
   width: 100%;
-
 }
 .link {
   text-decoration: none;
@@ -18,12 +17,12 @@
   height: 100%;
   width: 100%;
   font-size: 1.5rem;
-  margin-top:1.2vh;
+  margin-top: 1.2vh;
   color: white;
   font-weight: bold;
 }
 @media screen and (max-width: 500px) {
-    .link{
-font-size: 1.2rem;
-    }
-    }
+  .link {
+    font-size: 1.2rem;
+  }
+}

@@ -13,13 +13,19 @@ function App() {
           <nav>
             <ul className={styles.navigation}>
               <li className={styles.beerLink}>
-                <Link className={styles.link} to="/beerpizza">Beer with pizza</Link>
+                <Link className={styles.link} to="/beerpizza">
+                  Beer with pizza
+                </Link>
               </li>
               <li className={styles.beerLink}>
-                <Link className={styles.link} to="/beersteak">Beer with steak</Link>
+                <Link className={styles.link} to="/beersteak">
+                  Beer with steak
+                </Link>
               </li>
               <li className={styles.beerLink}>
-                <Link className={styles.link} to="/">Beer</Link>
+                <Link className={styles.link} to="/">
+                  Beer
+                </Link>
               </li>
             </ul>
           </nav>
