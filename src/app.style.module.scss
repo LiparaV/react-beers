@@ -7,10 +7,14 @@
 .beerLink {
   background-color: rgb(187, 185, 185);
   width: 100%;
+  transition: 0.3s ease-in-out;
   height: 3rem;
   border-left: rgb(114, 114, 114) 2px solid;
-  width: 100%;
+  &:hover{
+    background-color: rgb(109, 108, 108);
+  }
 }
+
 .link {
   text-decoration: none;
   display: block;
@@ -21,6 +25,7 @@
   color: white;
   font-weight: bold;
 }
+
 @media screen and (max-width: 500px) {
   .link {
     font-size: 1.2rem;

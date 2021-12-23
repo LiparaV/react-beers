@@ -4,7 +4,6 @@ import {
   beerSorterDes,
   beerSorterNameAsc,
   beerSorterNameDes,
-  uploadBeersRequest,
 } from "../../Reducers/beerSlice";
 import { useDispatch } from "react-redux";
 import styles from "./style.module.scss";

@@ -28,7 +28,7 @@ const BeerRender = () => {
         return (
           <div
             key={item.id}
-            onClick={(beeritem) => modalActivated(item.id)}
+            onClick={() => modalActivated(item.id)}
             className={styles.beerWrapper}
           >
             <img
